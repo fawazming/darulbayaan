@@ -11,31 +11,70 @@
 <body>
     <!-- <h1 class="text-center text-2xl">Darul Bayyan Receipt</h1> -->
     <main id="app" class="bg-gray-100">
-        <ul id="pupils">
-        </ul>
 
-        
+
+
+
     </main>
 
-    <script src="data.js"></script>
+
     <script>
-        window.addEventListener('load', (()=>{
-            let output = '';
+        const data = { "rows": [] }
+        function popu() {
+            let output = '<ul id="pupils">';
             for (let i = 0; i < data.rows.length; i++) {
                 output += `<li><a onclick="rcp(${i})">${data.rows[i].Name}</a></li>`;
             }
-            document.querySelector('#pupils').innerHTML = output;
+            output += `</ul>`
+            document.querySelector('#app').innerHTML = output;
+        }
+        window.addEventListener('load', (() => {
+            const baseUrl = 'https://sheet.spacet.me'
+            const sheetId = '11vWoxOlnIjvNr3sCk57k9gJwkWRYwGyB82viTAdXp9A'
+            const sheetName = 'Fees_Payment'
+            const endpoint = `${baseUrl}/${sheetId}/${sheetName}.json`
+            async function fetchD() {
+                await fetch(endpoint)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Unable to load data from ' + endpoint)
+                        }
+                        return response.json()
+                    })
+                    .then((dat) => {
+                        const [header, ...rows] = dat.values
+                        const ndata = rows.map(row => {
+                            const entries = header.map((key, i) => [key, row[i]])
+                            return Object.fromEntries(entries)
+                        })
+                        data.rows = ndata;
+
+                        // console.log(data.rows);
+                        popu()
+                        return ndata;
+                    })
+                    .catch((e) => {
+                        console.error(e);
+                    });
+            }
+            fetchD()
+
+            // console.log(tempd)
         }))
         function rcp(id) {
+            let expT = 37900;
             console.log(data.rows[id]);
             let m3 = data.rows[id].Month3;
-            if(m3 == '-'){
+            if (m3 == '-') {
                 m3 = 0
+                expT = 33700
+            } else {
+                m3 = parseInt(data.rows[id].Month3)
             }
-            let paid = data.rows[id].Month1 + data.rows[id].Month2 + m3 + data.rows[id].Month4 + data.rows[id].Month5 + data.rows[id].Month6 + data.rows[id].Month7 + data.rows[id]["Month 8"] + data.rows[id]["Month 9"];
+            let paid = parseInt(data.rows[id].Month1) + parseInt(data.rows[id].Month2) + m3 + parseInt(data.rows[id].Month4) + parseInt(data.rows[id].Month5) + parseInt(data.rows[id].Month6) + parseInt(data.rows[id].Month7) + parseInt(data.rows[id]["Month 8"]) + parseInt(data.rows[id]["Month 9"]);
             let receipt = `<div class="rcpt" style="width: 80mm; padding: 2mm 2mm; background-color: #fff;">
             <h1 class="text-center text-2xl font-bold">
-                Darul Bayyan
+                Darul Bayaan
             </h1>
             <p>-------------------------------------------</p>
             <p class="text-center">Name: <span id="name" class="font-semibold">${data.rows[id].Name}</span></p>
@@ -98,14 +137,14 @@
                     </tr>
                     <tr class="font-semibold">
                         <td>Total</td>
-                        <td class="text-center">37,900</td>
+                        <td class="text-center">${expT}</td>
                         <td  class="text-center"  id="totalP">${paid}</td>
                     </tr>
                 </tbody>
             </table>
-            <p class="font-bold pt-5">To balance: <span class="text-3xl"> ₦${37900 - paid} </span</p>
+            <p class="font-bold pt-5">To balance: <span class="text-3xl"> ₦${expT - paid} </span</p>
             <p class="text-center">${datee()}</p>
-            <p class="pt-10 text-center"> Jazakumullahu Khayran</>
+            <p class="pt-10 text-center" onclick="popu()"> Jazakumullahu Khayran</>
         </div>`;
             document.querySelector('#app').innerHTML = receipt;
         }
