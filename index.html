@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main
+        class="flex flex-col h-screen overflow-y-auto overflow-x-hidden w-full scroll-smooth fix-safari-flickering no-scrollbar"
+        style="font-family: var(--body-fontFamily); font-style: var(--body-fontStyle);">
+        <div id="header" class="group relative" style="z-index: 40;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <header id="website-header" class="relative z-50 transition-colors"
+                style="background-color: transparent; color: rgb(255, 255, 255);">
+                <div class="grid items-center lg:gap-6 xl:gap-10 mx-auto px-5 md:px-6 pt-6 pb-6 container"
+                    style="grid-template-columns: auto auto auto;">
+                    <div class="col-span-2 lg:col-span-1 flex items-center">
+                        <div data-tour="logo" location="header"
+                            class="flex items-center gap-3 max-w-[224px] lg:max-w-[260px] text-left inline-edit-inset"
+                            logo="[object Object]" text="Darul Bayyan Madrasah" color="#FFFFFF">
+                            <div class="flex-shrink-0 relative w-9 h-9 md:w-12 md:h-12">
+                                <div class="absolute w-full h-full"
+                                    style="background-color: rgb(255, 255, 255); mask-image: url(&quot;https://static.thenounproject.com/png/10119-200.png&quot;); mask-position: center center; mask-repeat: no-repeat; mask-size: contain;">
+                                </div>
+                            </div>
+                            <h2 class="heading-small lg:heading-medium max-w-full whitespace-normal"
+                                style="color: rgb(255, 255, 255); font-size: 17.0229px; line-height: 1.2; font-family: var(--header-logo-fontFamily); font-weight: var(--header-logo-fontWeight); width: 104.188px;">
+                                Darul Bayyan Madrasah</h2>
+                        </div>
+                    </div>
+                    <div class="hidden lg:flex item-center justify-end gap-10 lg:col-span-2">
+                        <ul class="lg:flex items-center gap-x-4 gap-y-2 flex-wrap justify-end hidden">
+                            <li>
+                                <div class="flex justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 24 24" width="24" height="24"
+                                        class="icon w-8 h-8" aria-hidden="true" style="color: rgb(255, 255, 255);">
+                                        <path fill-rule="evenodd"
+                                            d="M10.4375 21.8784C5.65941 21.1274 2 16.9877 2 12 2 6.48086 6.48086 2 12 2c5.5191 0 10 4.48086 10 10 0 4.9877-3.6594 9.1274-8.4375 9.8784v-6.9878h2.3301L16.3359 12h-2.7734v-1.8758c0-.79084.3874-1.5617 1.6296-1.5617h1.261V6.10156s-1.1443-.19531-2.2385-.19531c-2.2842 0-3.7771 1.38438-3.7771 3.89063V12H7.89844v2.8906h2.53906v6.9878Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></div>
+                            </li>
+                            <li>
+                                <div class="flex justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 24 24" width="24" height="24"
+                                        class="icon w-8 h-8" aria-hidden="true" style="color: rgb(255, 255, 255);">
+                                        <path fill-rule="evenodd"
+                                            d="M12 2c5.5191 0 10 4.48086 10 10 0 5.5191-4.4809 10-10 10-5.51914 0-10-4.4809-10-10C2 6.48086 6.48086 2 12 2Zm0 3.75c-1.6974 0-1.9102.00719-2.57688.03762-.66523.03035-1.11957.13601-1.51714.29051-.41098.15972-.75953.37343-1.107.72089-.34746.34746-.56117.69602-.72089 1.107-.1545.39753-.26012.85187-.29051 1.5171C5.75719 10.0898 5.75 10.3026 5.75 12s.00719 1.9102.03758 2.5769c.03039.6652.13601 1.1195.29051 1.5171.15972.411.37343.7595.72089 1.107.34747.3475.69602.5612 1.107.7209.39757.1545.85191.2601 1.51714.2905.66668.0304.87948.0376 2.57688.0376s1.9102-.0072 2.5769-.0376c.6652-.0304 1.1195-.136 1.5171-.2905.411-.1597.7595-.3734 1.107-.7209.3475-.3475.5612-.696.7209-1.107.1545-.3976.2601-.8519.2905-1.5171.0304-.6667.0376-.8795.0376-2.5769 0-1.6974-.0072-1.9102-.0376-2.57688-.0304-.66523-.136-1.11957-.2905-1.5171-.1597-.41098-.3734-.75954-.7209-1.107s-.696-.56117-1.107-.72089c-.3976-.1545-.8519-.26016-1.5171-.29051C13.9102 5.75719 13.6974 5.75 12 5.75Zm0 1.12613c1.6688 0 1.8665.00637 2.5255.03645.6094.02781.9403.12961 1.1606.21519.2917.11336.4999.24883.7186.46754.2187.21867.3542.42692.4675.71864.0856.22023.1874.55113.2152 1.1605.0301.65905.0365.85675.0365 2.52555s-.0064 1.8665-.0365 2.5255c-.0278.6094-.1296.9403-.2152 1.1606-.1133.2917-.2488.4999-.4675.7186-.2187.2187-.4269.3542-.7186.4675-.2203.0856-.5512.1874-1.1606.2152-.6589.0301-.8566.0365-2.5255.0365s-1.8666-.0064-2.52555-.0365c-.60937-.0278-.94027-.1296-1.1605-.2152-.29176-.1133-.49997-.2488-.71868-.4675-.21871-.2187-.35414-.4269-.4675-.7186-.08558-.2203-.18742-.5512-.21523-1.1606-.03008-.659-.03641-.8567-.03641-2.5255s.00633-1.8665.03641-2.52555c.02781-.60937.12965-.94027.21523-1.1605.11336-.29172.24879-.49997.4675-.71864.21871-.21871.42692-.35418.71868-.46754.22023-.08558.55113-.18738 1.1605-.21519.65905-.03008.85675-.03645 2.52555-.03645Zm0 1.91442c-1.7725 0-3.20945 1.43695-3.20945 3.20945S10.2275 15.2095 12 15.2095s3.2095-1.437 3.2095-3.2095c0-1.7725-1.437-3.20945-3.2095-3.20945Zm0 5.29275c-1.1506 0-2.08332-.9327-2.08332-2.0833 0-1.1506.93272-2.08332 2.08332-2.08332S14.0833 10.8494 14.0833 12 13.1506 14.0833 12 14.0833Zm4.0863-5.41955c0 .41422-.3358.74996-.7501.74996-.4141 0-.7499-.33574-.7499-.74996s.3358-.75.7499-.75c.4143 0 .7501.33578.7501.75Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></div>
+                            </li>
+                            <li>
+                                <div class="flex justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 24 24" width="24" height="24"
+                                        class="icon w-8 h-8" aria-hidden="true" style="color: rgb(255, 255, 255);">
+                                        <path
+                                            d="M13.6756 10.6218 20.2324 3h-1.5537l-5.6933 6.61788L8.43817 3H3.1935l6.8763 10.0074L3.1935 21h1.55384l6.01226-6.9887L15.5618 21h5.2447l-7.1313-10.3782h.0004Zm-2.1282 2.4738-.6967-.9965-5.54349-7.92939h2.38662l4.47367 6.39919.6967.9966 5.8152 8.318h-2.3866l-4.7454-6.7875v-.0004Z">
+                                        </path>
+                                    </svg></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ml-auto lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true" class="icon w-5 h-5 ml-auto mr-0">
+                            <path fill-rule="evenodd"
+                                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z"
+                                clip-rule="evenodd"></path>
+                        </svg></div>
+                </div>
+            </header>
+        </div>
+        <div id="block-0" class="group relative" style="z-index: 39;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative" style="z-index: 39;">
+                <div class="flex relative fix-safari-flickering" data-text-color="#FFFFFF"
+                    data-combine-with-header="true"
+                    style="padding-top: 89px; min-height: calc(134px); padding-bottom: 0px; margin-top: -89px;">
+                    <div class="flex break-word transition-all duration-300 w-full items-center">
+                        <div class="absolute inset-0 z-10 pointer-events-none">
+                            <div class="absolute inset-0 z-10 transition-all duration-300"
+                                style="background-color: rgb(36, 42, 46); opacity: 0.7;"></div>
+                            <div class="absolute inset-0 z-0 transition-all duration-300"
+                                style="background-image: url(&quot;https://media.gettyimages.com/id/1719110273/photo/kids-exploring-in-forest-with-a-magnifying-glass.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=aiewnycL7lf_okoNwhYTmApqcz7NyGDBFhRBxVXVjyY=&quot;); background-position: 50% 50%; background-size: cover;">
+                            </div>
+                        </div>
+                        <div
+                            class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-20 lg:pt-48 pb-20 lg:pb-48">
+                            <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                                <div
+                                    class="flex w-full gap-10 lg:gap-20 transition-all duration-300 flex-col lg:flex-row justify-start">
+                                    <div class="flex-1 flex flex-col w-full max-w-3xl items-start">
+                                        <h2 class="mb-6 break-word transition-all text-left heading-xlarge"
+                                            style="color: rgb(255, 255, 255); font-family: var(--head-fontFamily); font-style: var(--head-fontStyle);">
+                                            Discover Quality Education</h2>
+                                        <p class="transition-all body-large"
+                                            style="color: rgb(255, 255, 255); font-family: var(--body-fontFamily); font-style: var(--body-fontStyle);">
+                                            We empower students through exceptional education. Join us for a brighter
+                                            future in Lagos, Nigeria.</p>
+                                        <div
+                                            class="flex md:inline-flex flex-col md:flex-row gap-4 w-full md:w-max mt-6 lg:mt-8">
+                                            <button class="website-button w-full md:w-max transition-all lg"
+                                                style="border-width: 2px; border-style: solid; box-shadow: none; font-family: var(--body-fontFamily); font-weight: var(--body-fontWeight, 500); font-style: var(--body-fontStyle); background-color: rgb(44, 159, 242); color: rgb(17, 24, 39); border-radius: 8px; border-color: rgb(44, 159, 242);">Enroll
+                                                Now</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="block-1" class="group relative" style="z-index: 38;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative">
+                <div class="relative flex break-word transition-all duration-300 items-center fix-safari-flickering"
+                    style="min-height: calc(134px); padding-top: 0px; padding-bottom: 26px; clip-path: url(&quot;#71a92fde-de1f-40ef-bcc0-81549e51d135&quot;);">
+                    <div class="absolute inset-0 z-10 pointer-events-none">
+                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                            style="background-color: rgb(36, 42, 46);"></div>
+                    </div>
+                    <div
+                        class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-16 lg:pt-32 pb-16 lg:pb-32">
+                        <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                            <div
+                                class="flex w-full gap-10 lg:gap-20 transition-all duration-300 flex-col lg:flex-row items-start">
+                                <div class="flex-1 flex flex-col w-full max-w-240 items-start">
+                                    <div class="rich-text-block website-wysiwyg" style="color: rgb(255, 255, 255);">
+                                        <h2 style="white-space: pre-line">Quality Islamic Education at Darul Bayyan
+                                            Madrasah</h2>
+                                        <p>Located in Lagos, Nigeria, Darul Bayyan Madrasah offers top-notch Islamic
+                                            education. Our dedicated teachers ensure students excel academically and
+                                            spiritually. Join us for a brighter future.</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex-1 flex w-full lg:max-w-1/2 h-full transition-all duration-300 justify-center lg:justify-start">
+                                    <div
+                                        class="flex-shrink-0 relative mx-auto w-full h-full transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="Adorable smiling Pakistani Muslim girl with beautiful eyes wearing hijab, studying and doing homework on table, happy student kid reading book on blurred background of bookcase in library."
+                                                src="https://media.gettyimages.com/id/1371465004/photo/adorable-smiling-pakistani-muslim-girl-with-beautiful-eyes-wearing-hijab-studying-and-doing.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=pvup8HL0gtXU96ljp5QFVDDvy8gm5myeseoCY_FpY0I="
+                                                decoding="async" data-nimg="fill" class="transition-all duration-300"
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><svg class="absolute bottom-0 left-0" width="429" height="823" viewBox="0 0 429 823">
+                        <defs>
+                            <clipPath id="71a92fde-de1f-40ef-bcc0-81549e51d135">
+                                <rect width="429" height="797" fill="transparent"></rect>
+                                <path d="M429 0L286 26L143 0L0 26V0H429" transform="translate(0, 797)"
+                                    fill="transparent"></path>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+            </section>
+        </div>
+        <div id="block-2" class="group relative" style="z-index: 37;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative">
+                <div class="relative flex flex-none break-word transition-all duration-300 items-center fix-safari-flickering"
+                    style="min-height: calc(134px); margin-top: -27px; padding-top: 27px; padding-bottom: 0px;">
+                    <div class="absolute inset-0 z-10 pointer-events-none">
+                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                            style="background-color: rgb(19, 21, 22);"></div>
+                    </div>
+                    <div
+                        class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 inline-edit-inset pt-12 lg:pt-20 pb-12 lg:pb-20">
+                        <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                            <h2 class="heading-large mb-6 transition-all duration-300 text-left"
+                                style="color: rgb(255, 255, 255); font-family: var(--head-fontFamily); font-style: var(--head-fontStyle);">
+                                Core packages</h2>
+                        </div>
+                        <div class="flex flex-wrap w-full justify-start" style="gap: 40px;">
+                            <div class="" style="flex: 0 0 calc(100% + 0px);">
+                                <div class="relative flex flex-col overflow-hidden" style="flex: 0 0 calc(100% + 0px);">
+                                    <div style="" class="opacity-100 translate-y-0 undefined">
+                                        <div class="relative z-10 w-full h-full">
+                                            <div
+                                                class="flex-shrink-0 relative w-full mx-auto transition-all duration-300 aspect-w-2 aspect-h-3">
+                                                <span
+                                                    style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                        alt="Teacher checking pupil notebooks"
+                                                        src="https://media.gettyimages.com/id/2160438108/photo/teacher-checking-pupil-notebooks.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=Pd0pKD4wxtXr5JL8ZXhkAGhyCCWpgCDF4c05jiLIzcg="
+                                                        decoding="async" data-nimg="fill" class=""
+                                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                            </div>
+                                            <div class="">
+                                                <div class="flex flex-col text-left items-start py-6"
+                                                    style="color: rgb(255, 255, 255);">
+                                                    <p class="heading-medium mb-4 transition-all duration-300"
+                                                        style="color: currentcolor; font-family: var(--head-fontFamily); font-style: var(--head-fontStyle);">
+                                                        Inclusive Curriculum</p>
+                                                    <div class="rich-text-block website-wysiwyg transition-all duration-300"
+                                                        style="color: currentcolor;">We offer a balanced curriculum
+                                                        designed to meet the needs of every student, fostering all-round
+                                                        development.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="" style="flex: 0 0 calc(100% + 0px);">
+                                <div class="relative flex flex-col overflow-hidden" style="flex: 0 0 calc(100% + 0px);">
+                                    <div style="" class="opacity-100 translate-y-0 undefined">
+                                        <div class="relative z-10 w-full h-full">
+                                            <div
+                                                class="flex-shrink-0 relative w-full mx-auto transition-all duration-300 aspect-w-2 aspect-h-3">
+                                                <span
+                                                    style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                        alt="Teacher at work"
+                                                        src="https://media.gettyimages.com/id/1133250250/photo/teacher-at-work.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=4i-SjY71jlUa8eFvLg_vQ2VzVbbHDG8Z9qYFnFW9Odk="
+                                                        decoding="async" data-nimg="fill" class=""
+                                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                            </div>
+                                            <div class="">
+                                                <div class="flex flex-col text-left items-start py-6"
+                                                    style="color: rgb(255, 255, 255);">
+                                                    <p class="heading-medium mb-4 transition-all duration-300"
+                                                        style="color: currentcolor; font-family: var(--head-fontFamily); font-style: var(--head-fontStyle);">
+                                                        Experienced Faculty</p>
+                                                    <div class="rich-text-block website-wysiwyg transition-all duration-300"
+                                                        style="color: currentcolor;">Our teachers bring years of
+                                                        expertise, ensuring students receive quality education and
+                                                        personal attention.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="" style="flex: 0 0 calc(100% + 0px);">
+                                <div class="relative flex flex-col overflow-hidden" style="flex: 0 0 calc(100% + 0px);">
+                                    <div style="" class="opacity-100 translate-y-0 undefined">
+                                        <div class="relative z-10 w-full h-full">
+                                            <div
+                                                class="flex-shrink-0 relative w-full mx-auto transition-all duration-300 aspect-w-2 aspect-h-3">
+                                                <span
+                                                    style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                        alt="Done with homework. Happy kid got homework idea outdoors. Homework club. Afterschool activities. Homework assignment. Reading list. Home schooling. School and education"
+                                                        src="https://media.gettyimages.com/id/1279786310/photo/done-with-homework-happy-kid-got-homework-idea-outdoors-homework-club-afterschool-activities.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=8_GB-w-31VS-qirajgldlNm1uv0jS3e659G-nEY2ulY="
+                                                        decoding="async" data-nimg="fill" class=""
+                                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                            </div>
+                                            <div class="">
+                                                <div class="flex flex-col text-left items-start py-6"
+                                                    style="color: rgb(255, 255, 255);">
+                                                    <p class="heading-medium mb-4 transition-all duration-300"
+                                                        style="color: currentcolor; font-family: var(--head-fontFamily); font-style: var(--head-fontStyle);">
+                                                        After-School Programs</p>
+                                                    <div class="rich-text-block website-wysiwyg transition-all duration-300"
+                                                        style="color: currentcolor;">We provide various after-school
+                                                        activities to engage students beyond the classroom, promoting
+                                                        continuous learning.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="block-3" class="group relative" style="z-index: 36;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative">
+                <div class="relative flex flex-none break-word transition-all duration-300 items-center fix-safari-flickering"
+                    style="min-height: calc(134px); padding-top: 0px; padding-bottom: 0px;">
+                    <div class="absolute inset-0 z-10 pointer-events-none">
+                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                            style="background-color: rgb(19, 21, 22); opacity: 1;"></div>
+                        <div class="absolute inset-0 z-0 transition-all duration-300"
+                            style="background-image: url(&quot;https://media.gettyimages.com/id/1446636460/photo/aerial-view-of-lagos-eagle-square-with-colorful-buildings-around-and-parked-cars.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=-N0CP2cOZfwcFkLBQfXdoA77Eieax5ikEJvOihDSfSw=&quot;); background-position: center center; background-size: cover;">
+                        </div>
+                    </div>
+                    <div
+                        class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-16 lg:pt-32 pb-16 lg:pb-32">
+                        <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                            <div class="rich-text-block website-wysiwyg w-full max-w-5xl transition-all duration-300 text-left ml-0 mr-auto"
+                                style="color: rgb(255, 255, 255);">
+                                <h2 style="white-space: pre-line">About us</h2>
+                                <p>Welcome to our school, located in the vibrant city of Lagos, Nigeria. Our mission is
+                                    to provide quality education that empowers students to achieve academic excellence
+                                    and personal growth.</p>
+                                <p>We believe in nurturing each student's potential through a supportive and inclusive
+                                    environment. Join us to embark on an enriching educational journey.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="block-4" class="group relative" style="z-index: 35;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative">
+                <div class="relative flex flex-none transition-all duration-300 items-center fix-safari-flickering"
+                    style="min-height: calc(134px); padding-top: 0px; padding-bottom: 0px;">
+                    <div class="absolute inset-0 z-10 pointer-events-none">
+                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                            style="background-color: rgb(19, 21, 22);"></div>
+                    </div>
+                    <div class="relative z-10 transition-all duration-300 container mx-auto px-5 md:px-6 pt-0 pb-0">
+                        <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                            <div class="transition-all duration-300"></div>
+                            <div class="transition-all duration-300">
+                                <div class="grid grid-cols-1 lg:grid-cols-3 transition-all duration-300">
+                                    <div
+                                        class="relative overflow-hidden transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="A teacher pointing at a student"
+                                                src="https://media.gettyimages.com/id/79320432/photo/a-teacher-pointing-at-a-student.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=o-WN8tErTxL7B50xqfvDLyRUaxUrtRmv6dDR7Ubrygs="
+                                                decoding="async" data-nimg="fill"
+                                                class="w-full h-full object-center object-cover "
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="A teacher helping a student with reading"
+                                                src="https://media.gettyimages.com/id/79320420/photo/a-teacher-helping-a-student-with-reading.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=9qK5ztUZEJFbeYV-OhU8P46iT25f9ki0IcKTWG2tHLg="
+                                                decoding="async" data-nimg="fill"
+                                                class="w-full h-full object-center object-cover "
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="Teacher With Male Pupils Building Robotic Vehicle In Science Lesson"
+                                                src="https://media.gettyimages.com/id/999232412/photo/teacher-with-male-pupils-building-robotic-vehicle-in-science-lesson.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=-e5VMuMDZ0ruzjINGen7kzXa_XfJKWVyjpjQPCNQ54c="
+                                                decoding="async" data-nimg="fill"
+                                                class="w-full h-full object-center object-cover "
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="young caucasian blonde female manager teaching colleagues about SWOT analysis. business lecture, presentation concept"
+                                                src="https://media.gettyimages.com/id/1309080507/photo/young-caucasian-blonde-female-manager-teaching-colleagues-about-swot-analysis-business.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=wB6vJWJXEfJo2g2ZPxHeZKGPtvV1GRhchHQWuUFdqBU="
+                                                decoding="async" data-nimg="fill"
+                                                class="w-full h-full object-center object-cover "
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="young apprentice in vocational training working on a turning machine in the industry"
+                                                src="https://media.gettyimages.com/id/1148208976/photo/young-apprentice-in-vocational-training-working-on-a-turning-machine-in-the-industry.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=b5iFRXRP8nvoF5WZv7ry4Vjb3barcEs4-chRbL9QdhI="
+                                                decoding="async" data-nimg="fill"
+                                                class="w-full h-full object-center object-cover "
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                    <div
+                                        class="relative overflow-hidden transition-all duration-300 inline-edit-inset aspect-w-1 aspect-h-1">
+                                        <span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                alt="Student doing activity in the classroom."
+                                                src="https://media.gettyimages.com/id/1804872175/photo/student-doing-activity-in-the-classroom.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=zhT125YvgT8SyW6tpcS9qawkXbjUv6r8dVNrGUs-TRE="
+                                                decoding="async" data-nimg="fill"
+                                                class="w-full h-full object-center object-cover "
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="block-5" class="group relative" style="z-index: 34;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative">
+                <div class="relative flex flex-none break-word transition-all duration-300 items-center fix-safari-flickering"
+                    style="min-height: calc(134px); padding-top: 0px; padding-bottom: 26px; clip-path: url(&quot;#7b6aab60-ee86-4d43-9a91-e1754c829e12&quot;);">
+                    <div class="absolute inset-0 z-10 pointer-events-none">
+                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                            style="background-color: rgb(19, 21, 22);"></div>
+                    </div>
+                    <div
+                        class="relative z-10 container mx-auto px-5 md:px-6 testimonials-carousel transition-all duration-300 pt-16 lg:pt-32 pb-16 lg:pb-32">
+                        <div class="">
+                            <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                                <div class="slider-container" style="position: relative;">
+                                    <div aria-live="off" aria-atomic="true" tabindex="-1"
+                                        style="position: absolute; width: 1px; height: 1px; overflow: hidden; padding: 0px; margin: -1px; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;">
+                                        Slide 2 of 3</div>
+                                    <div
+                                        style="align-items: center; justify-content: flex-start; position: absolute; display: flex; z-index: 1; inset: 0px; pointer-events: none;">
+                                        <div class="slider-control-centerleft" style="pointer-events: auto;"><button
+                                                aria-label="previous" type="button"
+                                                style="border: 0px; background: transparent; color: rgb(255, 255, 255); padding: 10px; text-transform: uppercase; opacity: 1; cursor: pointer;"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24" width="24" height="24"
+                                                    class="icon w-6 lg:w-12 h-6 lg:h-12 -ml-4 md:ml-0"
+                                                    aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="1.5" d="m15 19-7-7 7-7"></path>
+                                                </svg></button></div>
+                                    </div>
+                                    <div
+                                        style="align-items: center; justify-content: flex-end; position: absolute; display: flex; z-index: 1; inset: 0px; pointer-events: none;">
+                                        <div class="slider-control-centerright" style="pointer-events: auto;"><button
+                                                aria-label="next" type="button"
+                                                style="border: 0px; background: transparent; color: rgb(255, 255, 255); padding: 10px; text-transform: uppercase; opacity: 1; cursor: pointer;"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24" width="24" height="24"
+                                                    class="icon w-6 lg:w-12 h-6 lg:h-12 -mr-4 md:mr-0"
+                                                    aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="1.5" d="m9 5 7 7-7 7"></path>
+                                                </svg></button></div>
+                                    </div>
+                                    <div
+                                        style="align-items: flex-end; justify-content: center; position: absolute; display: flex; z-index: 1; inset: 0px; pointer-events: none;">
+                                        <div class="slider-control-bottomcenter" style="pointer-events: auto;">
+                                            <ul class="flex gap-4 lg:gap-5 w-full justify-start">
+                                                <li><button
+                                                        class="w-2.5 h-2.5 rounded-full transition-all bg-gray-200"></button>
+                                                </li>
+                                                <li><button
+                                                        class="w-2.5 h-2.5 rounded-full transition-all bg-gray-900 ring-4 ring-gray-200"></button>
+                                                </li>
+                                                <li><button
+                                                        class="w-2.5 h-2.5 rounded-full transition-all bg-gray-50"></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="slider-frame" aria-label="carousel-slider" role="region" tabindex="-1"
+                                        style="overflow: hidden; width: 100%; position: relative; outline: none; height: auto; transition: height 300ms ease-in-out; will-change: height; user-select: none;">
+                                        <div class="slider-list"
+                                            style="width: 900%; text-align: left; user-select: auto; transform: translateX(calc(-44.4444% + 0px)); display: flex;">
+                                            <div class="slide prev-cloned" inert="true"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah is
+                                                            outstanding! The teachers are dedicated and the curriculum
+                                                            is excellent. My child has flourished academically and
+                                                            spiritually. Highly recommend this school for quality
+                                                            education. Thank you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Chinelo</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide prev-cloned" inert="true"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah is
+                                                            exceptional! The supportive teachers and enriching
+                                                            curriculum have greatly benefited my child's growth. Highly
+                                                            recommend this school for anyone seeking quality education.
+                                                            Thank you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Aisha</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide prev-cloned" inert="true"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah has
+                                                            transformed my child's education journey. The teachers are
+                                                            exceptional, and the curriculum is enriching. I am grateful
+                                                            for their dedication and highly recommend this school. Thank
+                                                            you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Fatima</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;"
+                                                inert="true">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah is
+                                                            outstanding! The teachers are dedicated and the curriculum
+                                                            is excellent. My child has flourished academically and
+                                                            spiritually. Highly recommend this school for quality
+                                                            education. Thank you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Chinelo</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide slide-current slide-visible"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah is
+                                                            exceptional! The supportive teachers and enriching
+                                                            curriculum have greatly benefited my child's growth. Highly
+                                                            recommend this school for anyone seeking quality education.
+                                                            Thank you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Aisha</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;"
+                                                inert="true">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah has
+                                                            transformed my child's education journey. The teachers are
+                                                            exceptional, and the curriculum is enriching. I am grateful
+                                                            for their dedication and highly recommend this school. Thank
+                                                            you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Fatima</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide next-cloned" inert="true"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah is
+                                                            outstanding! The teachers are dedicated and the curriculum
+                                                            is excellent. My child has flourished academically and
+                                                            spiritually. Highly recommend this school for quality
+                                                            education. Thank you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Chinelo</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide next-cloned" inert="true"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah is
+                                                            exceptional! The supportive teachers and enriching
+                                                            curriculum have greatly benefited my child's growth. Highly
+                                                            recommend this school for anyone seeking quality education.
+                                                            Thank you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Aisha</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slide next-cloned" inert="true"
+                                                style="width: 11.1111%; flex: 1 1 0%; height: auto; padding: 0px; opacity: 1;">
+                                                <div class="my-auto h-full flex px-8 md:px-28">
+                                                    <div
+                                                        class="max-w-5xl flex flex-col justify-center gap-6 text-left ml-0 mr-auto items-start">
+                                                        <h3 class="transition-all duration-300 heading-medium"
+                                                            style="color: rgb(255, 255, 255);">Darul Bayyan Madrasah has
+                                                            transformed my child's education journey. The teachers are
+                                                            exceptional, and the curriculum is enriching. I am grateful
+                                                            for their dedication and highly recommend this school. Thank
+                                                            you, Darul Bayyan!</h3>
+                                                        <p class="transition-all duration-300 body-large"
+                                                            style="color: rgb(255, 255, 255);">- Fatima</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><svg class="absolute bottom-0 left-0" width="429" height="783" viewBox="0 0 429 783">
+                        <defs>
+                            <clipPath id="7b6aab60-ee86-4d43-9a91-e1754c829e12">
+                                <rect width="429" height="757" fill="transparent"></rect>
+                                <path d="M429 0L286 26L143 0L0 26V0H429" transform="translate(0, 757)"
+                                    fill="transparent"></path>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+            </section>
+        </div>
+        <div id="block-6" class="group relative" style="z-index: 33;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative">
+                <div class="relative flex break-word transition-all duration-300 !min-h-80vh md:!min-h-50vh fix-safari-flickering"
+                    style="margin-top: -27px; padding-top: 27px; padding-bottom: 0px;">
+                    <div class="absolute inset-0 w-full opacity-100 translate-y-0 undefined">
+                        <div class="!absolute inset-0 z-0 transition-all duration-300 pointer-events-none leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+                            id="map-2980846f-c346-4922-b522-8f5d3bd9369b" tabindex="0">
+                            <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+                                <div class="leaflet-pane leaflet-tile-pane">
+                                    <div class="leaflet-layer " style="z-index: 1;">
+                                        <div class="leaflet-tile-container leaflet-zoom-animated"
+                                            style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"></div>
+                                    </div>
+                                    <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                                        <div class="leaflet-tile-container leaflet-zoom-animated"
+                                            style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img
+                                                alt="" role="presentation"
+                                                src="https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/16/33385/31590?access_token=pk.eyJ1IjoiZHVyYWJsZSIsImEiOiJjbGJjOHV1bHUwcjM5M3huOHdoZXdkdDRsIn0.geBkTZ4KBXWb669GQBr8rw"
+                                                class="leaflet-tile leaflet-tile-loaded"
+                                                style="width: 512px; height: 512px; transform: translate3d(238px, -25px, 0px); opacity: 1;"><img
+                                                alt="" role="presentation"
+                                                src="https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/16/33386/31590?access_token=pk.eyJ1IjoiZHVyYWJsZSIsImEiOiJjbGJjOHV1bHUwcjM5M3huOHdoZXdkdDRsIn0.geBkTZ4KBXWb669GQBr8rw"
+                                                class="leaflet-tile leaflet-tile-loaded"
+                                                style="width: 512px; height: 512px; transform: translate3d(750px, -25px, 0px); opacity: 1;"><img
+                                                alt="" role="presentation"
+                                                src="https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/16/33384/31590?access_token=pk.eyJ1IjoiZHVyYWJsZSIsImEiOiJjbGJjOHV1bHUwcjM5M3huOHdoZXdkdDRsIn0.geBkTZ4KBXWb669GQBr8rw"
+                                                class="leaflet-tile leaflet-tile-loaded"
+                                                style="width: 512px; height: 512px; transform: translate3d(-274px, -25px, 0px); opacity: 1;"><img
+                                                alt="" role="presentation"
+                                                src="https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/16/33387/31590?access_token=pk.eyJ1IjoiZHVyYWJsZSIsImEiOiJjbGJjOHV1bHUwcjM5M3huOHdoZXdkdDRsIn0.geBkTZ4KBXWb669GQBr8rw"
+                                                class="leaflet-tile leaflet-tile-loaded"
+                                                style="width: 512px; height: 512px; transform: translate3d(1262px, -25px, 0px); opacity: 1;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="leaflet-pane leaflet-shadow-pane"></div>
+                                <div class="leaflet-pane leaflet-overlay-pane"></div>
+                                <div class="leaflet-pane leaflet-marker-pane"><img
+                                        src="https://api.mapbox.com/v4/marker/pin-m+FFFFFF.png?access_token=pk.eyJ1IjoiZHVyYWJsZSIsImEiOiJjbGJjOHV1bHUwcjM5M3huOHdoZXdkdDRsIn0.geBkTZ4KBXWb669GQBr8rw"
+                                        class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt=""
+                                        tabindex="0"
+                                        style="margin-left: -15px; margin-top: -35px; width: 30px; height: 70px; transform: translate3d(678px, 202px, 0px); z-index: 202;">
+                                </div>
+                                <div class="leaflet-pane leaflet-tooltip-pane"></div>
+                                <div class="leaflet-pane leaflet-popup-pane"></div>
+                                <div class="leaflet-proxy leaflet-zoom-animated"
+                                    style="transform: translate3d(1.67772e+07px, 1.67772e+07px, 0px) scale(65536);">
+                                </div>
+                            </div>
+                            <div class="leaflet-control-container">
+                                <div class="leaflet-top leaflet-left">
+                                    <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a
+                                            class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button"
+                                            aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#"
+                                            title="Zoom out" role="button" aria-label="Zoom out">−</a></div>
+                                </div>
+                                <div class="leaflet-top leaflet-right">
+                                    <div class="leaflet-control-grid map-tooltip leaflet-control"
+                                        style="display: none;"><a class="close" href="#" title="close">close</a>
+                                        <div class="map-tooltip-content"></div>
+                                    </div>
+                                </div>
+                                <div class="leaflet-bottom leaflet-left">
+                                    <div class="mapbox-logo leaflet-control mapbox-logo-true"></div>
+                                </div>
+                                <div class="leaflet-bottom leaflet-right">
+                                    <div class="map-legends wax-legends leaflet-control" style="display: none;"></div>
+                                    <div class="leaflet-control-attribution leaflet-control"><a
+                                            href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox">©
+                                            Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank"
+                                            title="OpenStreetMap">© OpenStreetMap</a> <a class="mapbox-improve-map"
+                                            href="https://www.mapbox.com/contribute/#/3.394/6.455/17" target="_blank"
+                                            title="Improve this map">Improve this map</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative z-10 container mx-auto px-5 md:px-6 py-12 lg:py-14 xl:py-20">
+                        <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined">
+                            <div class="flex flex-row w-full transition-all duration-300 md:!flex-row-reverse">
+                                <div class="inline-edit !absolute inset-0 z-5"></div>
+                                <div
+                                    class="relative w-full md:w-1/2 xl:w-2/5 flex flex-col gap-6 p-6 lg:p-10 shadow overflow-hidden transition-all duration-300">
+                                    <div class="absolute inset-0 z-10 pointer-events-none">
+                                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                                            style="background-color: rgb(19, 21, 22);"></div>
+                                    </div>
+                                    <div class="relative z-10 flex flex-col gap-4">
+                                        <div>
+                                            <p class="heading-medium mb-2 transition-all duration-300"
+                                                style="color: rgb(255, 255, 255); font-family: var(--head-fontFamily); font-style: var(--head-fontStyle);">
+                                                Location</p>
+                                            <pre class="body-normal transition-all duration-300"
+                                                style="color: rgb(255, 255, 255); font-family: var(--body-fontFamily); font-style: var(--body-fontStyle);">Lagos, Nigeria</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="block-7" class="group relative" style="z-index: 32;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <section class="relative" style="z-index: 32;">
+                <div class="flex relative fix-safari-flickering" data-text-color="#FFFFFF"
+                    style="min-height: calc(134px); padding-top: 0px; padding-bottom: 0px;">
+                    <div class="flex justify-center w-full break-word transition-all duration-300 items-center">
+                        <div class="absolute inset-0 z-10 pointer-events-none">
+                            <div class="absolute inset-0 z-10 transition-all duration-300"
+                                style="background-color: rgb(36, 42, 46); opacity: 0.7;"></div>
+                            <div class="absolute inset-0 z-0 transition-all duration-300"
+                                style="background-image: url(&quot;https://media.gettyimages.com/id/1376135709/photo/young-indian-teacher-teaching-on-laptop-with-school-uniform-students-at-classroom-concept-of.jpg?b=1&amp;s=2048x2048&amp;w=0&amp;k=20&amp;c=db_QX9n__jGNhX129Gn7YXdK2a1GgmNvlaqT_VaL1Bg=&quot;); background-position: center center; background-size: cover;">
+                            </div>
+                        </div>
+                        <div
+                            class="relative z-10 container mx-auto px-5 md:px-6 transition-all duration-300 pt-16 lg:pt-32 pb-16 lg:pb-32">
+                            <div class="relative z-10 w-full h-full opacity-100 translate-y-0 undefined" style="">
+                                <div
+                                    class="flex flex-col gap-4 max-w-3xl transition-all duration-300 items-center mx-auto text-center">
+                                    <h2 class="break-word transition-all heading-large"
+                                        style="color: rgb(255, 255, 255);">Join Darul Bayyan Today</h2>
+                                    <p class="transition-all body-normal" style="color: rgb(255, 255, 255);">Enroll at
+                                        Darul Bayyan Madrasah in Lagos for quality education.</p>
+                                    <div class="flex md:inline-flex flex-wrap gap-4 pt-4"><button
+                                            class="website-button lg"
+                                            style="border-width: 2px; border-style: solid; box-shadow: none; font-family: var(--body-fontFamily); font-weight: var(--body-fontWeight, 500); font-style: var(--body-fontStyle); background-color: rgb(44, 159, 242); color: rgb(17, 24, 39); border-radius: 8px; border-color: rgb(44, 159, 242);">Enroll
+                                            Now</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="footer" class="group relative" style="z-index: 31;">
+            <div
+                class="flex flex-col items-center justify-center gap-4 absolute z-90 bg-black bg-opacity-40 w-full h-full border-0 border-indigo-600 opacity-0 transition-all duration-400">
+                <button class="outlined gap-2 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="icon w-5 h-5">
+                        <path
+                            d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z">
+                        </path>
+                        <path
+                            d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z">
+                        </path>
+                    </svg><span class="font-sans">Edit section</span></button></div>
+            <footer class="flex flex-col relative h-full">
+                <div class="relative flex-1 fix-safari-flickering"
+                    style="color: rgb(255, 255, 255); padding-top: 0px; padding-bottom: 0px;">
+                    <div class="absolute inset-0 z-10 pointer-events-none">
+                        <div class="absolute inset-0 z-10 transition-all duration-300"
+                            style="background-color: rgb(36, 42, 46);"></div>
+                    </div>
+                    <div
+                        class="inline-edit-inset container mx-auto px-5 md:px-6 relative z-10 pt-12 lg:pt-14 xl:pt-20 pb-12 lg:pb-14 xl:pb-20">
+                        <div class="flex flex-col lg:flex-row lg:justify-between gap-12">
+                            <div class="flex flex-col items-start gap-12 lg:gap-6">
+                                <div data-tour="logo"
+                                    class="flex items-center gap-3 max-w-[224px] lg:max-w-[260px] text-left"
+                                    logo="[object Object]" text="Darul Bayyan Madrasah" location="header"
+                                    color="#FFFFFF">
+                                    <div class="flex-shrink-0 relative w-9 h-9 md:w-12 md:h-12">
+                                        <div class="absolute w-full h-full"
+                                            style="background-color: rgb(255, 255, 255); mask-image: url(&quot;https://static.thenounproject.com/png/10119-200.png&quot;); mask-position: center center; mask-repeat: no-repeat; mask-size: contain;">
+                                        </div>
+                                    </div>
+                                    <h2 class="heading-small lg:heading-medium max-w-full whitespace-normal"
+                                        style="color: rgb(255, 255, 255); font-size: 17.0229px; line-height: 1.2; font-family: var(--header-logo-fontFamily); font-weight: var(--header-logo-fontWeight); width: 104.188px;">
+                                        Darul Bayyan Madrasah</h2>
+                                </div>
+                                <div class="flex flex-col lg:flex-row lg:items-center gap-12"></div>
+                            </div>
+                            <div class="flex flex-col gap-6">
+                                <p class="body-normal lg:text-right whitespace-nowrap"><span>Made with&nbsp;</span><a
+                                        target="_blank" class="underline" href="https://durable.co"
+                                        style="color: rgb(255, 255, 255);">Durable</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+
+</html>

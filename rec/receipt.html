@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darul Bayyan Receipt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- <h1 class="text-center text-2xl">Darul Bayyan Receipt</h1> -->
+    <main id="app" class="bg-gray-100">
+        <ul id="pupils">
+        </ul>
+
+        
+    </main>
+
+    <script src="data.js"></script>
+    <script>
+        window.addEventListener('load', (()=>{
+            let output = '';
+            for (let i = 0; i < data.rows.length; i++) {
+                output += `<li><a onclick="rcp(${i})">${data.rows[i].Name}</a></li>`;
+            }
+            document.querySelector('#pupils').innerHTML = output;
+        }))
+        function rcp(id) {
+            console.log(data.rows[id]);
+            let m3 = data.rows[id].Month3;
+            if(m3 == '-'){
+                m3 = 0
+            }
+            let paid = data.rows[id].Month1 + data.rows[id].Month2 + m3 + data.rows[id].Month4 + data.rows[id].Month5 + data.rows[id].Month6 + data.rows[id].Month7 + data.rows[id]["Month 8"] + data.rows[id]["Month 9"];
+            let receipt = `<div class="rcpt" style="width: 80mm; padding: 2mm 2mm; background-color: #fff;">
+            <h1 class="text-center text-2xl font-bold">
+                Darul Bayyan
+            </h1>
+            <p>-------------------------------------------</p>
+            <p class="text-center">Name: <span id="name" class="font-semibold">${data.rows[id].Name}</span></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month &nbsp;&nbsp; | &nbsp;&nbsp; </th>
+                        <th>Expected (₦)</th>
+                        <th>&nbsp; | &nbsp;Paid (₦)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>January</td>
+                        <td class="text-center">4000</td>
+                        <td  class="text-center" id="month1">${data.rows[id].Month1}</td>
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td class="text-center">4500</td>
+                        <td  class="text-center"  id="month2">${data.rows[id].Month2}</td>
+                    </tr>
+                    <tr>
+                        <td>March</td>
+                        <td class="text-center">4200</td>
+                        <td  class="text-center"  id="month3">${data.rows[id].Month3}</td>
+                    </tr>
+                    <tr>
+                        <td>April</td>
+                        <td class="text-center">4200</td>
+                        <td  class="text-center"  id="month4">${data.rows[id].Month4}</td>
+                    </tr>
+                    <tr>
+                        <td>May</td>
+                        <td class="text-center">4200</td>
+                        <td  class="text-center"  id="month5">${data.rows[id].Month5}</td>
+                    </tr>
+                    <tr>
+                        <td>June</td>
+                        <td class="text-center">4200</td>
+                        <td class="text-center"  id="month6">${data.rows[id].Month6}</td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td class="text-center">4200</td>
+                        <td  class="text-center"  id="month7">${data.rows[id].Month7}</td>
+                    </tr>
+                    <tr>
+                        <td>August</td>
+                        <td class="text-center">4200</td>
+                        <td  class="text-center"  id="month8">${data.rows[id]["Month 8"]}</td>
+                    </tr>
+                    <tr>
+                        <td>September</td>
+                        <td class="text-center">4200</td>
+                        <td  class="text-center"  id="month9">${data.rows[id]["Month 9"]}</td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr class="font-semibold">
+                        <td>Total</td>
+                        <td class="text-center">37,900</td>
+                        <td  class="text-center"  id="totalP">${paid}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="font-bold pt-5">To balance: <span class="text-3xl"> ₦${37900 - paid} </span</p>
+            <p class="text-center">${datee()}</p>
+            <p class="pt-10 text-center"> Jazakumullahu Khayran</>
+        </div>`;
+            document.querySelector('#app').innerHTML = receipt;
+        }
+
+        function datee() {
+            const d = new Date();
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+        }
+    </script>
+</body>
+
+</html>
